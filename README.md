@@ -1,1 +1,1 @@
-# putingay.io
+![QR Code](qr.png)
