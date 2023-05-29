@@ -1,15 +1,9 @@
-*{
-  padding: 0;
-  margin: 0;
-}
 body {
   height: 100vh;
   background: linear-gradient(
     to top,
-    yellow 0%,
     yellow 50%,
-    blue 50%,
-    blue 100%
+    blue 50%
   );
 }
 
