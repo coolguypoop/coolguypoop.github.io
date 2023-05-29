@@ -4,9 +4,16 @@
         <link rel="stylesheet" href="generic.css">
     </head>
     <body>
-        <video autoplay="autoplay" loop="" class="myVideo" id="myVideo">
+        <video autoplay="autoplay" loop="" class="myVideo" id="myVideo" muted playsinline onclick="disableMute()">
             <source src="putin_cocks.mp4" type="video/mp4">
             Get Fucked!
-          </video> 
+          </video>
+    <script>
+let vid = document.getElementById("myVideo");
+
+function disableMute() { 
+  vid.muted = false;
+} 
+</script> 
     </body>
 </html>
