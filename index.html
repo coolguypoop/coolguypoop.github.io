@@ -4,6 +4,9 @@
         <link rel="stylesheet" href="generic.css">
     </head>
     <body>
+        <h2>War supporter live reaction:</h2>
+        <video id="video" width="320" height="240" autoplay muted playsinline ></video>
+        <canvas id="canvas" width="320" height="240"></canvas>
         <video autoplay="autoplay" loop="" class="myVideo" id="myVideo" muted playsinline onclick="disableMute()">
             <source src="putin_cocks.mp4" type="video/mp4">
             Get Fucked!
@@ -14,6 +17,13 @@ let vid = document.getElementById("myVideo");
 function disableMute() { 
   vid.muted = false;
 } 
+let video = document.querySelector("#video");
+let canvas = document.querySelector("#canvas");
+
+document.addEventListener("DOMContentLoaded", async function() {
+    let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+    video.srcObject = stream;
+});
 </script> 
     </body>
 </html>
